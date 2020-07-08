@@ -232,6 +232,19 @@ return [
 
     'menu' => [
         [
+            'text'    => '开发',
+            'icon'    => 'fas fa-fw fa-code',
+            'submenu' => [
+                [
+                    'text' => '系统信息',
+                    'url'  => 'develop/info',
+                    'data' => [
+                        'pjax' => 'true',
+                    ],
+                ],
+            ],
+        ],
+        [
             'text'    => '管理',
             'icon'    => 'fas fa-fw fa-user',
             'submenu' => [

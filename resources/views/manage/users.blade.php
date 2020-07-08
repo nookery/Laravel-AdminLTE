@@ -6,7 +6,7 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">
-                        @yield('card-title')
+                        用户管理
                     </h3>
 
                     <div class="card-tools">
