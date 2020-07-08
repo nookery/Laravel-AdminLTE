@@ -17,7 +17,8 @@
         "laravel/horizon": "^4.3",
         "laravel/telescope": "^3.5",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.1"
+        "laravel/ui": "^2.1",
+        "spatie/laravel-activitylog": "^3.14"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

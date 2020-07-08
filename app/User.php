@@ -2,13 +2,49 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use LogsActivity;
+
+    /**
+     * 哪些字段发生变化需要记录日志
+     *
+     * @var array
+     */
+    protected static $logAttributes = ['*'];
+
+    /**
+     * 忽略这些字段的变化，不必记录日志
+     *
+     * @var array
+     */
+    protected static $logAttributesToIgnore = ['updated_at'];
+
+    /**
+     * 哪些事件需要记录日志，默认created,updated,deleted
+     *
+     * @var array
+     */
+    protected static $recordEvents = ['created', 'updated', 'deleted'];
+
+    /**
+     * 只记录变化的字段
+     *
+     * @var bool
+     */
+    protected static $logOnlyDirty = true;
+
+    /**
+     * 是否记录空日志
+     *
+     * @var bool
+     */
+    protected static $submitEmptyLogs = false;
 
     /**
      * The attributes that are mass assignable.
