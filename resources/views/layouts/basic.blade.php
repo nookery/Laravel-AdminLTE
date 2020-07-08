@@ -1,5 +1,22 @@
 @extends('adminlte::page')
 
+@section('right-sidebar')
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+            <a href="{{ url('horizon') }}" class="nav-link" target="_blank">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Horizon</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ url('telescope') }}" class="nav-link" target="_blank">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Telescope</p>
+            </a>
+        </li>
+    </ul>
+@stop
+
 @section('content')
     <div id="pjax-container">
         @yield('content_body')
