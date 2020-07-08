@@ -244,6 +244,14 @@ return [
                     'text' => '用户管理',
                     'url'  => 'manage/users',
                 ],
+                [
+                    'text' => 'Telescope',
+                    'url'  => 'telescope',
+                ],
+                [
+                    'text' => 'Horizon',
+                    'url'  => 'horizon',
+                ],
             ],
         ],
     ],
