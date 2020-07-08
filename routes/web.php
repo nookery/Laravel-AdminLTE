@@ -26,7 +26,7 @@ Route::get('/', 'HomeController@index')->name('home');
 */
 
 Route::group([
-    'middleware' => ['auth:web', 'permission_checker'],
+    'middleware' => ['auth:web'],
     'prefix'     => 'develop',
     'namespace'  => 'Develop'
 ], function () {

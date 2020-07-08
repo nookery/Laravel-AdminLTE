@@ -77,6 +77,30 @@
                                 <td>{{ $item->email }}</td>
                                 <td>
                                     {{ json_encode($item->getRoleNames()) }}
+                                    <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-default">
+                                        编辑
+                                    </button>
+                                    <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Default Modal</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>One fine body…</p>
+                                                </div>
+                                                <div class="modal-footer justify-content-between">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
                                 </td>
                                 <td class="project-actions text-right">
                                     <a class="btn btn-primary btn-sm" href="#">

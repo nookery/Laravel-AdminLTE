@@ -2,17 +2,29 @@
 
 namespace App\Http\Middleware;
 
-use App\Repositories\PermissionRepository;
 use Closure;
 use App\Models\Permission as PermissionModel;
 
 class Permission
 {
-    protected $permissionRepository;
+    /**
+     * 无需检查权限的路径
+     *
+     * @var array
+     */
+    protected $except = [
+        'GET /',
+        'POST logout',
+        'GET login',
+        'POST login'
+    ];
 
-    public function __construct(PermissionRepository $permissionRepository){
-        $this->permissionRepository = $permissionRepository;
-    }
+    /**
+     * 视图文件的路径
+     *
+     * @var
+     */
+    protected $view = 'errors.no-permission';
 
     /**
      * Handle an incoming request.
@@ -23,13 +35,21 @@ class Permission
      */
     public function handle($request, Closure $next)
     {
+        $permissionName = $request->method().' '.$request->path();
+
         $permission = PermissionModel::query()->firstOrCreate([
-            'name' => $request->method() . ' ' . $request->path(),
+            'name' => $permissionName,
             'guard_name' => 'web',
         ]);
 
-        if (!$request->user()->can($permission->name)) {
-            return abort(403);
+        if (in_array($permissionName, $this->except)) {
+            return $next($request);
+        }
+
+        if ($request->user()->cant($permission->name)) {
+            return response()->view($this->view, [
+                'message' => '无权访问：'.$permissionName
+            ], 403);
         }
 
         return $next($request);
