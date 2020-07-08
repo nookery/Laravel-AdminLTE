@@ -6,12 +6,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use LogsActivity;
     use SearchableTrait;
+    use HasRoles;
 
     /**
      * 哪些字段发生变化需要记录日志

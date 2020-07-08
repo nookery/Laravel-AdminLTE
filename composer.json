@@ -21,6 +21,7 @@
         "nicolaslopezj/searchable": "^1.13",
         "prettus/l5-repository": "^2.6",
         "spatie/laravel-activitylog": "^3.14",
+        "spatie/laravel-permission": "^3.13",
         "spatie/laravel-pjax": "^2.1"
     },
     "require-dev": {

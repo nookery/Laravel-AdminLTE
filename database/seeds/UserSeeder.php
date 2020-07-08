@@ -1,6 +1,6 @@
 <?php
 
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -22,6 +22,6 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('admin123456')
             ]
         );
-        factory(App\User::class, 50)->create();
+        factory(User::class, 50)->create();
     }
 }
