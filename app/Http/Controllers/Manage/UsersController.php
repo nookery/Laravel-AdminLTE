@@ -33,8 +33,7 @@ class UsersController extends Controller
     {
         // 检查参数
         $validator = Validator::make($request->all(), [
-            'realName' => 'nullable|string|min:1|max:32',
-            'active' => Rule::in([null, 0, 1])
+            'keyword' => 'nullable|string|min:1|max:32'
         ]);
 
         if ($validator->fails()) {
@@ -43,7 +42,10 @@ class UsersController extends Controller
                 ->withInput();
         }
 
-        $items = $this->repository->orderBy('id', 'desc')->paginate(20);
+        $items = $this->repository
+            ->search($request->input('keyword'))
+            ->orderBy('id', 'desc')
+            ->paginate(20);
 
         return view('manage.users')->with(compact('items', 'request'));
     }
