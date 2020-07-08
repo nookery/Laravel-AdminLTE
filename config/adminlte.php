@@ -243,6 +243,9 @@ return [
                 [
                     'text' => '用户管理',
                     'url'  => 'manage/users',
+                    'data' => [
+                        'pjax' => 'true',
+                    ],
                 ],
                 [
                     'text' => 'Telescope',
@@ -363,6 +366,17 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        [
+            'name' => 'Pjax',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js',
                 ],
             ],
         ],

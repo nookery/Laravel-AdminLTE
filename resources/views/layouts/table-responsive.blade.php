@@ -1,6 +1,6 @@
 @extends('layouts.basic')
 
-@section('content')
+@section('content_body')
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" style="height: 600px;">
+                <div class="card-body table-hover table-responsive p-0" style="height: 600px;">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>
                         <tr>
