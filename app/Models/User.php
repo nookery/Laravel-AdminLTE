@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -25,7 +25,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected static $logAttributesToIgnore = ['updated_at'];
+    protected static $logAttributesToIgnore = [];
 
     /**
      * 哪些事件需要记录日志，默认created,updated,deleted

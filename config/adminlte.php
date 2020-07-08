@@ -166,7 +166,7 @@ return [
     |
     */
 
-    'right_sidebar' => true,
+    'right_sidebar' => false,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
@@ -232,17 +232,19 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
-        [
             'text'    => '管理',
             'icon'    => 'fas fa-fw fa-user',
             'submenu' => [
                 [
                     'text' => '用户管理',
                     'url'  => 'manage/users',
+                    'data' => [
+                        'pjax' => 'true',
+                    ],
+                ],
+                [
+                    'text' => '日志管理',
+                    'url'  => 'manage/logs',
                     'data' => [
                         'pjax' => 'true',
                     ],
@@ -344,7 +346,7 @@ return [
         ],
         [
             'name' => 'Sweetalert2',
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

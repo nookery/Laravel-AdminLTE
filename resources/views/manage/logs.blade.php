@@ -18,10 +18,6 @@
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                 </div>
-
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-block btn-default" data-toggle="collapse" href="#add-form">增加</button>
-                                </div>
                             </div>
                         </form>
                     </div>
@@ -63,40 +59,22 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>用户名</th>
-                            <th>邮件</th>
-                            <th>操作</th>
+                            <th>类型</th>
+                            <th>描述</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse ($items as $item)
-                            <tr>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->email }}</td>
-                                <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
-                                        <i class="fas fa-folder">
-                                        </i>
-                                        View
-                                    </a>
-                                    <a class="btn btn-info btn-sm" href="#">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Edit
-                                    </a>
-                                    <a class="btn btn-danger btn-sm" href="{{ url('manage/users/delete?id='.$item->id) }}">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        删除
-                                    </a>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="7" align="center">没有记录</td>
-                            </tr>
-                        @endforelse
+                            @forelse ($items as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->log_name }}</td>
+                                    <td>{{ $item->description }}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="7" align="center">没有记录</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

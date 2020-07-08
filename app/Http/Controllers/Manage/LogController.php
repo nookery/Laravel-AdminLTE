@@ -2,29 +2,27 @@
 
 namespace App\Http\Controllers\Manage;
 
-use App\UserRepository;
+use App\Repositories\LogRepository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
-class UsersController extends Controller
+class LogController extends Controller
 {
     /**
-     * @var UserRepository
+     * @var LogRepository
      */
     protected $repository;
 
-    public function __construct(UserRepository $repository){
+    public function __construct(LogRepository $repository){
         $this->repository = $repository;
     }
 
     /**
-     *
+     * 展示
      *
      * @param Request $request
      * @return Application|RedirectResponse|Redirector
@@ -47,6 +45,6 @@ class UsersController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(20);
 
-        return view('manage.users')->with(compact('items', 'request'));
+        return view('manage.logs')->with(compact('items', 'request'));
     }
 }

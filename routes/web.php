@@ -42,6 +42,21 @@ Route::group([
     Route::group([
         'prefix' => 'users'
     ], function () {
-        Route::get('', 'UsersController@index');
+        Route::get('', 'UserController@index');
+        Route::post('', 'UserController@create');
+        Route::delete('', 'UserController@delete');
+        Route::get('delete', 'UserController@delete');
+    });
+
+    /*
+    |--------------------------------------------------------------------------
+    | 日志管理
+    |--------------------------------------------------------------------------
+    */
+
+    Route::group([
+        'prefix' => 'logs'
+    ], function () {
+        Route::get('', 'LogController@index');
     });
 });
