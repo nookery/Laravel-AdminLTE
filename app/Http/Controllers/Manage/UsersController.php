@@ -2,19 +2,32 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\UserRepository;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
     /**
-     * 展示所有的用户
+     * @var UserRepository
+     */
+    protected $repository;
+
+    public function __construct(UserRepository $repository){
+        $this->repository = $repository;
+    }
+
+    /**
+     *
      *
      * @param Request $request
-     * @return $this
+     * @return Application|RedirectResponse|Redirector
      */
     public function index(Request $request)
     {
@@ -30,16 +43,7 @@ class UsersController extends Controller
                 ->withInput();
         }
 
-        $builder = User::orderBy('id', 'desc');
-
-        if ($request->realName) {
-            $builder->where('real_name', 'like', "%{$request->realName}%");
-        }
-        if ($request->filled('active') ) {
-            $builder->where('active', $request->input('active'));
-        }
-
-        $items = $builder->paginate(20);
+        $items = $this->repository->orderBy('id', 'desc')->paginate(20);
 
         return view('manage.users')->with(compact('items', 'request'));
     }
