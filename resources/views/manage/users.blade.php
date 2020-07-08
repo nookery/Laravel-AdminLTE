@@ -65,6 +65,7 @@
                             <th>ID</th>
                             <th>用户名</th>
                             <th>邮件</th>
+                            <th>角色</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -74,6 +75,9 @@
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
+                                <td>
+                                    {{ json_encode($item->getRoleNames()) }}
+                                </td>
                                 <td class="project-actions text-right">
                                     <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder">
