@@ -256,8 +256,22 @@ return [
                     ],
                 ],
                 [
+                    'text' => '角色管理',
+                    'url'  => 'manage/roles',
+                    'data' => [
+                        'pjax' => 'true',
+                    ],
+                ],
+                [
                     'text' => '日志管理',
                     'url'  => 'manage/logs',
+                    'data' => [
+                        'pjax' => 'true',
+                    ],
+                ],
+                [
+                    'text' => '权限管理',
+                    'url'  => 'manage/permissions',
                     'data' => [
                         'pjax' => 'true',
                     ],

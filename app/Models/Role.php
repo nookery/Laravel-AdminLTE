@@ -8,7 +8,7 @@ use Nicolaslopezj\Searchable\SearchableTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
 
-class Permission extends \Spatie\Permission\Models\Permission
+class Role extends \Spatie\Permission\Models\Role
 {
     use SearchableTrait;
 
@@ -27,7 +27,6 @@ class Permission extends \Spatie\Permission\Models\Permission
          */
         'columns' => [
             'name' => 10,
-            'guard_name' => 20
         ]
     ];
 }
