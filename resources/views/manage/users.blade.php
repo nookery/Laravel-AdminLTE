@@ -20,21 +20,21 @@
                                 </div>
 
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-block btn-default" data-toggle="collapse" href="#add-form">增加</button>
+                                    <button type="button" class="btn btn-block btn-default" data-toggle="collapse" href="#add-card">增加</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body collapse" id="add-form">
+                <div class="card-body collapse" id="add-card">
                     <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">添加用户</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" id="quickForm" action="{{ url()->current() }}" method="post" data-ajaxSubmit>
+                        <form role="form" id="add-form" action="{{ url()->current() }}" method="post" data-ajaxSubmit>
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
