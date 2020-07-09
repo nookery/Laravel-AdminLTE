@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Repositories\UserRepository;
+use App\Rules\UserEmail;
+use App\Rules\UserName;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class UserController extends Controller
@@ -62,8 +62,8 @@ class UserController extends Controller
     {
         // 检查参数
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|min:1|max:32',
-            'email' => 'email'
+            'name' => ['required', new UserName()],
+            'email' => ['required', new UserEmail()]
         ]);
 
         if ($validator->fails()) {
