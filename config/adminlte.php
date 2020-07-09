@@ -302,6 +302,22 @@ return [
 
     'plugins' => [
         [
+            'name' => 'jQuery.validate',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.bootcdn.net/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.bootcdn.net/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js',
+                ],
+            ],
+        ],
+        [
             'name' => 'Datatables',
             'active' => false,
             'files' => [
@@ -356,7 +372,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'location' => '//unpkg.com/sweetalert/dist/sweetalert.min.js',
                 ],
             ],
         ],
@@ -384,6 +400,17 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js',
+                ],
+            ],
+        ],
+        [
+            'name' => 'jQuery.form',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.bootcdn.net/ajax/libs/jquery.form/4.3.0/jquery.form.min.js',
                 ],
             ],
         ],

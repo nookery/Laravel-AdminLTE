@@ -34,26 +34,31 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ url()->current() }}" method="post" data-pjax>
+                        <form role="form" id="quickForm" action="{{ url()->current() }}" method="post" data-ajaxSubmit>
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="name">用户名</label>
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="输入用户名">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="输入用户名">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">邮箱</label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="输入邮箱">
+                                    <input type="text" name="email" class="form-control" id="email" placeholder="输入邮箱">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="输入密码">
+                                    <label for="password">密码</label>
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="输入密码">
+                                </div>
+                                <div class="form-group mb-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="terms" class="custom-control-input" id="terms">
+                                        <label class="custom-control-label" for="terms">已阅读并同意 <a href="#">用户协议</a></label>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
-
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">提交</button>
+                                <button type="submit" class="btn btn-primary btn-ajax-submit">提交</button>
                             </div>
                         </form>
                     </div>

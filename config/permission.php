@@ -2,6 +2,8 @@
 
 return [
 
+    'enable_permission_checker' => env('APP_CHECK_PERMISSION'),
+
     'models' => [
 
         /*

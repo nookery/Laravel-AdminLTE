@@ -61,20 +61,14 @@ class UserController extends Controller
     public function create(Request $request)
     {
         // 检查参数
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', new UserName()],
-            'email' => ['required', new UserEmail()]
+        $result = $request->validate([
+            'name' => ['required', 'unique:users', new UserName()],
+            'email' => ['required', 'unique:users', new UserEmail()]
         ]);
-
-        if ($validator->fails()) {
-            return redirect('manage/users')
-                ->withErrors($validator)
-                ->withInput();
-        }
 
         $this->repository->create($request->all());
 
-        return redirect('manage/users');
+        // return redirect('manage/users');
     }
 
     /**

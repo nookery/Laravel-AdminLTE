@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Models\Permission as PermissionModel;
+use Illuminate\Http\Request;
 
 class Permission
 {
@@ -29,12 +30,16 @@ class Permission
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  Request  $request
+     * @param Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
+        if (!config('permission.enable_permission_checker')) {
+            return $next($request);
+        }
+        
         $permissionName = $request->method().' '.$request->path();
 
         $permission = PermissionModel::query()->firstOrCreate([
