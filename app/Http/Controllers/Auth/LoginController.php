@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Rules\Password;
+use App\Rules\UserEmail;
 use App\Rules\UserName;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -50,7 +51,7 @@ class LoginController extends Controller
     protected function validateLogin(Request $request)
     {
         $request->validate([
-            $this->username() => ['required', new UserName()],
+            'email' => ['required', new UserEmail()],
             'password' => ['required', new Password()],
         ]);
     }
