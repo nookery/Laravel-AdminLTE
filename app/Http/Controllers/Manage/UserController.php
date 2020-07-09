@@ -61,14 +61,14 @@ class UserController extends Controller
     public function create(Request $request)
     {
         // 检查参数
-        $result = $request->validate([
+        $request->validate([
             'name' => ['required', 'unique:users', new UserName()],
             'email' => ['required', 'unique:users', new UserEmail()]
         ]);
 
         $this->repository->create($request->all());
 
-        // return redirect('manage/users');
+        return redirect('manage/users');
     }
 
     /**

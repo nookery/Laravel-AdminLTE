@@ -354,28 +354,28 @@ return [
                 ],
             ],
         ],
-        [
-            'name' => 'Chartjs',
-            'active' => false,
-            'files' => [
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
-                ],
-            ],
-        ],
-        [
-            'name' => 'Sweetalert2',
-            'active' => true,
-            'files' => [
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '//unpkg.com/sweetalert/dist/sweetalert.min.js',
-                ],
-            ],
-        ],
+        // [
+        //     'name' => 'Chartjs',
+        //     'active' => false,
+        //     'files' => [
+        //         [
+        //             'type' => 'js',
+        //             'asset' => false,
+        //             'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+        //         ],
+        //     ],
+        // ],
+        // [
+        //     'name' => 'Sweetalert2',
+        //     'active' => true,
+        //     'files' => [
+        //         [
+        //             'type' => 'js',
+        //             'asset' => false,
+        //             'location' => '//unpkg.com/sweetalert/dist/sweetalert.min.js',
+        //         ],
+        //     ],
+        // ],
         [
             'name' => 'Pace',
             'active' => false,

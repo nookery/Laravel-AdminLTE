@@ -51,14 +51,14 @@
                                 </div>
                                 <div class="form-group mb-0">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="terms" class="custom-control-input" id="terms">
+                                        <input type="checkbox" name="terms" class="custom-control-input" id="terms" checked="true">
                                         <label class="custom-control-label" for="terms">已阅读并同意 <a href="#">用户协议</a></label>
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary btn-ajax-submit">提交</button>
+                                <button type="submit" class="btn btn-primary">提交</button>
                             </div>
                         </form>
                     </div>
