@@ -82,24 +82,44 @@
                                 <td>{{ $item->email }}</td>
                                 <td>
                                     {{ json_encode($item->getRoleNames()) }}
-                                    <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-default">
+                                    <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-default{{ $item->id }}">
                                         编辑
                                     </button>
-                                    <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+                                    <div class="modal fade" id="modal-default{{ $item->id }}" style="display: none;" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Default Modal</h4>
+                                                    <h4 class="modal-title">角色配置</h4>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">×</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>One fine body…</p>
-                                                </div>
-                                                <div class="modal-footer justify-content-between">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                    <div class="card card-secondary">
+                                                        <div class="card-body">
+                                                            <form role="form" action="{{ url()->current() }}" method="POST" data-ajaxSubmit>
+                                                                <input type="hidden" name="key" value="roles">
+                                                                <input type="hidden" name="id" value="{{ $item->id }}">
+                                                                @csrf
+                                                                @method('PATCH')
+                                                                <!-- checkbox -->
+                                                                <div class="form-group">
+                                                                    @foreach ($roles as $role)
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input class="custom-control-input" name="value[]" type="checkbox" id="{{ $item->id.$role->id }}" value="{{ $role->name }}"
+                                                                        {{ $item->hasRole($role->name) ? 'checked' : '' }}>
+                                                                        <label for="{{ $item->id.$role->id }}" class="custom-control-label">{{ $role->name }}</label>
+                                                                    </div>
+                                                                    @endforeach
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-primary">保存</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <!-- /.card-body -->
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!-- /.modal-content -->

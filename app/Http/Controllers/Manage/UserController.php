@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Rules\UserEmail;
 use App\Rules\UserName;
@@ -20,8 +21,12 @@ class UserController extends Controller
      */
     protected $repository;
 
-    public function __construct(UserRepository $repository){
+    protected $roleRepository;
+
+    public function __construct(UserRepository $repository, RoleRepository $roleRepository)
+    {
         $this->repository = $repository;
+        $this->roleRepository = $roleRepository;
     }
 
     /**
@@ -48,7 +53,9 @@ class UserController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(20);
 
-        return view('manage.users')->with(compact('items', 'request'));
+        $roles = $this->roleRepository->all();
+
+        return view('manage.users')->with(compact('items', 'roles', 'request'));
     }
 
     /**
@@ -91,6 +98,29 @@ class UserController extends Controller
         }
 
         $this->repository->delete($request->input('id'));
+
+        return redirect('manage/users');
+    }
+
+    /**
+     * 更新
+     *
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     */
+    public function update(Request $request)
+    {
+        // 检查参数
+        $request->validate([
+            'id' => 'required|integer|min:1',
+            'key' => 'required|string',
+            'value' => 'required'
+        ]);
+
+        if ($request->input('key') === 'roles') {
+            $user = $this->repository->find($request->input('id'));
+            $user->syncRoles($request->input('value'));
+        }
 
         return redirect('manage/users');
     }

@@ -59,6 +59,7 @@ Route::group([
     ], function () {
         Route::get('', 'UserController@index');
         Route::post('', 'UserController@create');
+        Route::patch('', 'UserController@update');
         Route::delete('', 'UserController@delete');
         Route::get('delete', 'UserController@delete');
     });
