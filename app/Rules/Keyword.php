@@ -5,11 +5,11 @@ namespace App\Rules;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
-class UserEmail implements Rule
+class Keyword implements Rule
 {
     /*
     |--------------------------------------------------------------------------
-    | 本系统的用户邮件规则
+    | 通用的搜索关键词的校验规则
     |--------------------------------------------------------------------------
     |
     */
@@ -28,7 +28,6 @@ class UserEmail implements Rule
      */
     public function __construct()
     {
-
     }
 
     /**
@@ -41,7 +40,7 @@ class UserEmail implements Rule
     public function passes($attribute, $value)
     {
         $validator = Validator::make([$attribute => $value], [
-            $attribute => 'string|email'
+            $attribute => 'string|min:1|max:50'
         ]);
 
         if ($validator->fails()) {

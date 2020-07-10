@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Manage;
 
-use App\Repositories\RoleRepository;
-use App\Repositories\UserRepository;
+use App\Models\Auth\User;
+use App\Repositories\Auth\UserRepository;
+use App\Repositories\Rbac\RoleRepository;
 use App\Rules\UserEmail;
 use App\Rules\UserName;
 use Illuminate\Contracts\Foundation\Application;
@@ -38,15 +39,9 @@ class UserController extends Controller
     public function index(Request $request)
     {
         // 检查参数
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'keyword' => 'nullable|string|min:1|max:32'
         ]);
-
-        if ($validator->fails()) {
-            return redirect('manage/users')
-                ->withErrors($validator)
-                ->withInput();
-        }
 
         $items = $this->repository
             ->search($request->input('keyword'))
@@ -69,8 +64,8 @@ class UserController extends Controller
     {
         // 检查参数
         $request->validate([
-            'name' => ['required', 'unique:users', new UserName()],
-            'email' => ['required', 'unique:users', new UserEmail()]
+            'name' => ['required', 'unique:'.$this->repository->getTable(), new UserName()],
+            'email' => ['required', 'unique:'.$this->repository->getTable(), new UserEmail()]
         ]);
 
         $this->repository->create($request->all());

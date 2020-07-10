@@ -5,13 +5,15 @@ namespace App\Rules;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
-/**
- * 本系统的用户名规则
- *
- * @package App\Rules
- */
 class UserName implements Rule
 {
+    /*
+    |--------------------------------------------------------------------------
+    | 本系统的用户名规则
+    |--------------------------------------------------------------------------
+    |
+    */
+
     /**
      * 错误信息
      *

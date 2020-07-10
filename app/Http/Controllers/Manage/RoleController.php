@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Manage;
 
-use App\Repositories\LogRepository;
-use App\Repositories\PermissionRepository;
-use App\Repositories\RoleRepository;
+use App\Repositories\Rbac\PermissionRepository;
+use App\Repositories\Rbac\RoleRepository;
+use App\Rules\Keyword;
 use App\Rules\RoleName;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -17,7 +17,7 @@ use Prettus\Validator\Exceptions\ValidatorException;
 class RoleController extends Controller
 {
     /**
-     * @var LogRepository
+     * @var RoleRepository
      */
     protected $repository;
 
@@ -38,15 +38,9 @@ class RoleController extends Controller
     public function index(Request $request)
     {
         // 检查参数
-        $validator = Validator::make($request->all(), [
-            'keyword' => 'nullable|string|min:1|max:32'
+        $request->validate($request->all(), [
+            'keyword' => ['nullable', new Keyword()]
         ]);
-
-        if ($validator->fails()) {
-            return redirect('manage/users')
-                ->withErrors($validator)
-                ->withInput();
-        }
 
         $items = $this->repository
             ->search($request->input('keyword'))

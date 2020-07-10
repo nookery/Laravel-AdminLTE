@@ -13,7 +13,7 @@
                         <form action="{{ url()->current() }}" class="form-inline" data-pjax>
                             <div class="input-group input-group-sm" style="width: 350px;">
                                 <input type="text" name="keyword" class="form-control float-right" placeholder="输入关键字查询"
-                                       value="{{ request()->input('keyword') }}" style="color: red">
+                                       value="{{ request()->input('keyword') ?? request()->old('keyword') }}" style="color: red">
 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
