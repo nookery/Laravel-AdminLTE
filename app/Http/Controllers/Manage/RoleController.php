@@ -6,8 +6,6 @@ use App\Repositories\LogRepository;
 use App\Repositories\PermissionRepository;
 use App\Repositories\RoleRepository;
 use App\Rules\RoleName;
-use App\Rules\UserEmail;
-use App\Rules\UserName;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

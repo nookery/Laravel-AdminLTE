@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Manage;
 
-use App\Repositories\LogRepository;
+use App\Repositories\Auth\ActivityLogRepository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Validator;
 class LogController extends Controller
 {
     /**
-     * @var LogRepository
+     * @var ActivityLogRepository
      */
     protected $repository;
 
-    public function __construct(LogRepository $repository){
+    public function __construct(ActivityLogRepository $repository){
         $this->repository = $repository;
     }
 

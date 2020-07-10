@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Rbac;
 
+use App\Models\Rbac\Permission;
 use Prettus\Repository\Eloquent\BaseRepository;
 
-class UserRepository extends BaseRepository
+class PermissionRepository extends BaseRepository
 {
     /**
      * Specify Model class name
@@ -13,6 +14,6 @@ class UserRepository extends BaseRepository
      */
     function model()
     {
-        return "App\\Models\\User";
+        return Permission::class;
     }
 }

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Auth;
 
+use App\Models\Auth\ActivityLog;
 use Prettus\Repository\Eloquent\BaseRepository;
 
-class PermissionRepository extends BaseRepository
+class ActivityLogRepository extends BaseRepository
 {
     /**
      * Specify Model class name
@@ -13,6 +14,6 @@ class PermissionRepository extends BaseRepository
      */
     function model()
     {
-        return "App\\Models\\Permission";
+        return ActivityLog::class;
     }
 }

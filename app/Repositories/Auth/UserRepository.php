@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Auth;
 
+use App\Models\Auth\User;
 use Prettus\Repository\Eloquent\BaseRepository;
 
-class RoleRepository extends BaseRepository
+class UserRepository extends BaseRepository
 {
     /**
      * Specify Model class name
@@ -13,6 +14,6 @@ class RoleRepository extends BaseRepository
      */
     function model()
     {
-        return "App\\Models\\Role";
+        return User::class;
     }
 }
