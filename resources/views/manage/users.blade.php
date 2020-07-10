@@ -81,10 +81,7 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>
-                                    {{ json_encode($item->getRoleNames()) }}
-                                    <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-default{{ $item->id }}">
-                                        编辑
-                                    </button>
+                                    {{ implode(' ', $item->getRoleNames()->toArray()) }}
                                     <div class="modal fade" id="modal-default{{ $item->id }}" style="display: none;" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -127,16 +124,11 @@
                                         <!-- /.modal-dialog -->
                                     </div>
                                 </td>
-                                <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
-                                        <i class="fas fa-folder">
-                                        </i>
-                                        View
-                                    </a>
-                                    <a class="btn btn-info btn-sm" href="#">
+                                <td class="project-actions text-middle">
+                                    <a class="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#modal-default{{ $item->id }}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
-                                        Edit
+                                        角色
                                     </a>
                                     <a class="btn btn-danger btn-sm" href="{{ url('manage/users/delete?id='.$item->id) }}">
                                         <i class="fas fa-trash">

@@ -61,6 +61,10 @@
                             <th>ID</th>
                             <th>类型</th>
                             <th>描述</th>
+                            <th>变动者</th>
+                            <th>触发者</th>
+                            <th>创建时间</th>
+                            <th>更新时间</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -69,6 +73,10 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->log_name }}</td>
                                     <td>{{ $item->description }}</td>
+                                    <td>{{ $item->subject_type }}</td>
+                                    <td>{{ $item->causer_type }}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->updated_at }}</td>
                                 </tr>
                             @empty
                                 <tr>

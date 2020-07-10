@@ -74,6 +74,8 @@ Route::group([
         'prefix' => 'roles'
     ], function () {
         Route::get('', 'RoleController@index');
+        Route::post('', 'RoleController@create');
+        Route::patch('', 'RoleController@update');
     });
 
     /*

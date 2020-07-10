@@ -272,6 +272,7 @@ return [
                 [
                     'text' => '权限管理',
                     'url'  => 'manage/permissions',
+                    // 'can' => 'GET manage/permissions',
                     'data' => [
                         'pjax' => 'true',
                     ],

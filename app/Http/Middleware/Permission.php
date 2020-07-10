@@ -39,7 +39,7 @@ class Permission
         if (!config('permission.enable_permission_checker')) {
             return $next($request);
         }
-        
+
         $permissionName = $request->method().' '.$request->path();
 
         $permission = PermissionModel::query()->firstOrCreate([
