@@ -80,7 +80,9 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="7" align="center">没有记录</td>
+                                    <td colspan="100%" class="align-content-center text-center bg-light">
+                                        <h6><i class="icon fas fa-info"></i> 没有记录</h6>
+                                    </td>
                                 </tr>
                             @endforelse
                         </tbody>

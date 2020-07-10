@@ -38,7 +38,7 @@ class RoleController extends Controller
     public function index(Request $request)
     {
         // 检查参数
-        $request->validate($request->all(), [
+        $request->validate([
             'keyword' => ['nullable', new Keyword()]
         ]);
 
