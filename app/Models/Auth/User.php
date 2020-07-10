@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Auth;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,48 +10,72 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
+    /*
+    |--------------------------------------------------------------------------
+    | 用户
+    |--------------------------------------------------------------------------
+    |
+    | 表名在这里配置：config.auth.table_name
+    |
+    */
+
     use Notifiable;
+
+    /**
+     * 用于记录本Model的变动日志，此组件提供：spatie/laravel-activitylog
+     *
+     */
     use LogsActivity;
+
+    /**
+     * 用于模糊搜索，此组件提供：nicolaslopezj/searchable
+     *
+     */
     use SearchableTrait;
+
+    /**
+     * RBAC相关功能，此组件提供：spatie/laravel-permission
+     *
+     */
     use HasRoles;
 
     /**
-     * 哪些字段发生变化需要记录日志
+     * 哪些字段发生变化需要记录日志，详见这个组件的文档：spatie/laravel-activitylog
      *
      * @var array
      */
     protected static $logAttributes = ['*'];
 
     /**
-     * 忽略这些字段的变化，不必记录日志
+     * 忽略这些字段的变化，不必记录日志，详见这个组件的文档：spatie/laravel-activitylog
      *
      * @var array
      */
     protected static $logAttributesToIgnore = [];
 
     /**
-     * 哪些事件需要记录日志，默认created,updated,deleted
+     * 哪些事件需要记录日志，默认created,updated,deleted，详见这个组件的文档：spatie/laravel-activitylog
      *
      * @var array
      */
     protected static $recordEvents = ['created', 'updated', 'deleted'];
 
     /**
-     * 只记录变化的字段
+     * 只记录变化的字段，详见这个组件的文档：spatie/laravel-activitylog
      *
      * @var bool
      */
     protected static $logOnlyDirty = true;
 
     /**
-     * 是否记录空日志
+     * 是否记录空日志，详见这个组件的文档：spatie/laravel-activitylog
      *
      * @var bool
      */
     protected static $submitEmptyLogs = false;
 
     /**
-     * The attributes that are mass assignable.
+     * 允许批量填充的字段
      *
      * @var array
      */
@@ -78,7 +102,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * 搜索规则
+     * 搜索规则，用于此组件：nicolaslopezj/searchable
      *
      * @var array
      */
@@ -95,4 +119,18 @@ class User extends Authenticatable
             'email' => 10,
         ]
     ];
+
+    /**
+     * User constructor.
+     *
+     * @param array $attributes
+     */
+    public function __construct(array $attributes = [])
+    {
+        if (!isset($this->table)) {
+            $this->setTable(config('auth.table_name'));
+        }
+
+        parent::__construct($attributes);
+    }
 }

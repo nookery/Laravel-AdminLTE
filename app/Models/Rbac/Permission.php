@@ -1,19 +1,29 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Rbac;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 use Nicolaslopezj\Searchable\SearchableTrait;
-use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\Permission\Traits\HasRoles;
 
 class Permission extends \Spatie\Permission\Models\Permission
 {
+    /*
+    |--------------------------------------------------------------------------
+    | 权限，RBAC系统的一部分
+    |--------------------------------------------------------------------------
+    |
+    | 对应的表由此组件创建：spatie/laravel-permission
+    | 表名在这里配置：config/permission.table_names
+    |
+    */
+
+    /**
+     * 用于模糊搜索，此组件提供：nicolaslopezj/searchable
+     *
+     */
     use SearchableTrait;
 
     /**
-     * 搜索规则
+     * 搜索规则，用于此组件：nicolaslopezj/searchable
      *
      * @var array
      */

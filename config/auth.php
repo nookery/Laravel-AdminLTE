@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Auth\User::class,
         ],
 
         // 'users' => [
@@ -113,5 +113,14 @@ return [
     */
 
     'password_timeout' => 10800,
+
+    /*
+    |--------------------------------------------------------------------------
+    | 存储用户的表名
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'table_name' => 'auth_users',
 
 ];
