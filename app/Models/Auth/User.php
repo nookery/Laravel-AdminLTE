@@ -133,4 +133,34 @@ class User extends Authenticatable
 
         parent::__construct($attributes);
     }
+
+    /**
+     * 用户头像
+     *
+     * @return string
+     */
+    public function adminlte_image()
+    {
+        return 'https://picsum.photos/300/300';
+    }
+
+    /**
+     * 用户的个人描述
+     *
+     * @return string
+     */
+    public function adminlte_desc()
+    {
+        return 'That\'s a nice guy';
+    }
+
+    /**
+     * 用户个人页面
+     *
+     * @return string
+     */
+    public function adminlte_profile_url()
+    {
+        return '/';
+    }
 }

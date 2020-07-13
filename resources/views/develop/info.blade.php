@@ -67,17 +67,24 @@
                     <div class="callout callout-info">
                         <h5>PHP扩展</h5>
                         <div class="row">
-                            @forelse (get_loaded_extensions() as $extension)
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" checked disabled>
-                                            <label class="form-check-label">{{ $extension }}</label>
-                                        </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" {{ extension_loaded('redis') ? 'checked' : '' }} disabled>
+                                        <label class="form-check-label">Redis</label>
+                                        <p>Horizon队列管理组件会用到此扩展</p>
                                     </div>
                                 </div>
-                            @empty
-                            @endforelse
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" {{ extension_loaded('pcntl') ? 'checked' : '' }} disabled>
+                                        <label class="form-check-label">Pcntl</label>
+                                        <p>Horizon队列管理组件会用到此扩展</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
