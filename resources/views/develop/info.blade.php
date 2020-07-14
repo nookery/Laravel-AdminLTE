@@ -85,7 +85,65 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" {{ extension_loaded('openssl') ? 'checked' : '' }} disabled>
+                                        <label class="form-check-label">openssl</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" {{ extension_loaded('pdo') ? 'checked' : '' }} disabled>
+                                        <label class="form-check-label">pdo</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" {{ extension_loaded('mbstring') ? 'checked' : '' }} disabled>
+                                        <label class="form-check-label">mbstring</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" {{ extension_loaded('tokenizer') ? 'checked' : '' }} disabled>
+                                        <label class="form-check-label">tokenizer</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" {{ extension_loaded('JSON') ? 'checked' : '' }} disabled>
+                                        <label class="form-check-label">JSON</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" {{ extension_loaded('cURL') ? 'checked' : '' }} disabled>
+                                        <label class="form-check-label">cURL</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="callout callout-info">
+                        <h5>其他变量</h5>
+                        
+                        <p>REMOTE_ADDR：{{ $_SERVER['REMOTE_ADDR'] }}</p>
+                        <p>SERVER_PROTOCOL：{{ $_SERVER['SERVER_PROTOCOL'] }}</p>
+                        <p>PATH_INFO：{{ $_SERVER['PATH_INFO'] }}</p>
+                        <p>PHP_SELF：{{ $_SERVER['PHP_SELF'] }}</p>
+                        <p>HTTP_HOST：{{ $_SERVER['HTTP_HOST'] }}</p>
+                        <p>HTTP_REFERER：{{ $_SERVER['HTTP_REFERER'] }}</p>
                     </div>
                 </div>
                 <!-- /.card-body -->
