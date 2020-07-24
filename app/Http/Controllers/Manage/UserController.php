@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Controllers\Controller;
 use App\Repositories\Auth\UserRepository;
 use App\Repositories\Rbac\RoleRepository;
+use App\Rules\Keyword;
 use App\Rules\UserEmail;
 use App\Rules\UserName;
 use Illuminate\Contracts\Foundation\Application;
@@ -39,13 +40,12 @@ class UserController extends Controller
     {
         // 检查参数
         $request->validate([
-            'keyword' => 'nullable|string|min:1|max:32'
+            config('repository.criteria.params.search') => ['nullable', new Keyword()]
         ]);
 
         $items = $this->repository
-            ->search($request->input('keyword'))
             ->orderBy('id', 'desc')
-            ->paginate(20);
+            ->paginate();
 
         $roles = $this->roleRepository->all();
 

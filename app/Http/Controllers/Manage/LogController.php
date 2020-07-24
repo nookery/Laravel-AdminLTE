@@ -32,13 +32,12 @@ class LogController extends Controller
     {
         // 检查参数
         $request->validate([
-            'keyword' => ['nullable', new Keyword()]
+            config('repository.criteria.params.search') => ['nullable', new Keyword()]
         ]);
 
         $items = $this->repository
-            ->search($request->input('keyword'))
             ->orderBy('id', 'desc')
-            ->paginate(20);
+            ->paginate();
 
         return view('manage.logs')->with(compact('items', 'request'));
     }

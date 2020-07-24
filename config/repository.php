@@ -52,7 +52,7 @@ return [
          | Enable or disable cache
          |
          */
-        'enabled'    => false,
+        'enabled'    => true,
 
         /*
          |--------------------------------------------------------------------------
@@ -210,7 +210,7 @@ return [
         |
         */
         'params'             => [
-            'search'       => 'search',
+            'search'       => 'keyword',
             'searchFields' => 'searchFields',
             'filter'       => 'filter',
             'orderBy'      => 'orderBy',
@@ -231,7 +231,8 @@ return [
         'rootNamespace' => 'App\\',
         'stubsOverridePath' => app()->path(),
         'paths'         => [
-            'models'       => 'Entities',
+            // 'models'       => 'Entities',
+            'models'       => 'Models',
             'repositories' => 'Repositories',
             'interfaces'   => 'Repositories',
             'transformers' => 'Transformers',

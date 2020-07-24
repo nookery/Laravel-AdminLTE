@@ -12,8 +12,8 @@
                     <div class="card-tools">
                         <form action="{{ url()->current() }}" class="form-inline" data-pjax>
                             <div class="input-group input-group-sm" style="width: 350px;">
-                                <input type="text" name="keyword" class="form-control float-right" placeholder="输入关键字查询"
-                                       value="{{ request()->input('keyword') ?? request()->old('keyword') }}" style="color: red">
+                                <input type="text" name="{{ config('repository.criteria.params.search') }}" class="form-control float-right" placeholder="输入关键字查询"
+                                       value="{{ request(config('repository.criteria.params.search')) ?? request()->old(config('repository.criteria.params.search')) }}" style="color: red">
 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>

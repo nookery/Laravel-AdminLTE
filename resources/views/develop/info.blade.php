@@ -137,10 +137,10 @@
                     </div>
                     <div class="callout callout-info">
                         <h5>其他变量</h5>
-                        
+
                         <p>REMOTE_ADDR：{{ $_SERVER['REMOTE_ADDR'] }}</p>
                         <p>SERVER_PROTOCOL：{{ $_SERVER['SERVER_PROTOCOL'] }}</p>
-                        <p>PATH_INFO：{{ $_SERVER['PATH_INFO'] }}</p>
+                        <p>PATH_INFO：{{ $_SERVER['PATH_INFO'] ?? '' }}</p>
                         <p>PHP_SELF：{{ $_SERVER['PHP_SELF'] }}</p>
                         <p>HTTP_HOST：{{ $_SERVER['HTTP_HOST'] }}</p>
                         <p>HTTP_REFERER：{{ $_SERVER['HTTP_REFERER'] }}</p>
