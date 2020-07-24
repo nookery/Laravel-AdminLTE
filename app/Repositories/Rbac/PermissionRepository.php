@@ -12,7 +12,7 @@ class PermissionRepository extends BaseRepository
      *
      * @return string
      */
-    function model()
+    public function model()
     {
         return Permission::class;
     }

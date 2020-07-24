@@ -18,7 +18,6 @@ class AlphaDashDot implements Rule
      */
     public function __construct()
     {
-
     }
 
     /**

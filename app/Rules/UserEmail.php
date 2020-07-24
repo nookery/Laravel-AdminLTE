@@ -28,7 +28,6 @@ class UserEmail implements Rule
      */
     public function __construct()
     {
-
     }
 
     /**

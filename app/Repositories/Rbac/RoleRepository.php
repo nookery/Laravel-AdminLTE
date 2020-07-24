@@ -12,7 +12,7 @@ class RoleRepository extends BaseRepository
      *
      * @return string
      */
-    function model()
+    public function model()
     {
         return Role::class;
     }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use App\Models\Permission as PermissionModel;
+use Closure;
 use Illuminate\Http\Request;
 
 class Permission

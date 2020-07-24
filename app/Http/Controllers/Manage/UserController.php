@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\Http\Controllers\Controller;
 use App\Repositories\Auth\UserRepository;
 use App\Repositories\Rbac\RoleRepository;
 use App\Rules\UserEmail;
@@ -9,7 +10,6 @@ use App\Rules\UserName;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use Prettus\Validator\Exceptions\ValidatorException;
