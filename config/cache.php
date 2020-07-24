@@ -44,7 +44,7 @@ return [
 
         'database' => [
             'driver' => 'database',
-            'table' => 'cache',
+            'table' => 'laravel_cache',
             'connection' => null,
         ],
 
