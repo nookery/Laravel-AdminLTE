@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Manage;
 
-use App\Models\Auth\User;
 use App\Repositories\Auth\UserRepository;
 use App\Repositories\Rbac\RoleRepository;
 use App\Rules\UserEmail;

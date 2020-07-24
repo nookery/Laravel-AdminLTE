@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Manage\LogController;
+use App\Http\Controllers\Manage\PermissionController;
+use App\Http\Controllers\Manage\RoleController;
+use App\Http\Controllers\Manage\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,11 +37,11 @@ Route::group([
     Route::group([
         'prefix' => 'users'
     ], function () {
-        Route::get('', 'UserController@index');
-        Route::post('', 'UserController@create');
-        Route::patch('', 'UserController@update');
-        Route::delete('', 'UserController@delete');
-        Route::get('delete', 'UserController@delete');
+        Route::get('', [UserController::class, 'index']);
+        Route::post('', [UserController::class, 'create']);
+        Route::patch('', [UserController::class, 'update']);
+        Route::delete('', [UserController::class, 'delete']);
+        Route::get('delete', [UserController::class, 'delete']);
     });
 
     /*
@@ -49,9 +53,9 @@ Route::group([
     Route::group([
         'prefix' => 'roles'
     ], function () {
-        Route::get('', 'RoleController@index');
-        Route::post('', 'RoleController@create');
-        Route::patch('', 'RoleController@update');
+        Route::get('', [RoleController::class, 'index']);
+        Route::post('', [RoleController::class, 'create']);
+        Route::patch('', [RoleController::class, 'update']);
     });
 
     /*
@@ -63,7 +67,7 @@ Route::group([
     Route::group([
         'prefix' => 'permissions'
     ], function () {
-        Route::get('', 'PermissionController@index');
+        Route::get('', [PermissionController::class, 'index']);
     });
 
     /*
@@ -75,6 +79,6 @@ Route::group([
     Route::group([
         'prefix' => 'logs'
     ], function () {
-        Route::get('', 'LogController@index');
+        Route::get('', [LogController::class, 'index']);
     });
 });

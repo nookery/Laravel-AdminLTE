@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Develop\InfoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +26,5 @@ Route::group([
     'namespace'  => 'Develop'
 ], function () {
     // 系统信息
-    Route::get('info', 'InfoController@index');
+    Route::get('info', [InfoController::class, 'index']);
 });
