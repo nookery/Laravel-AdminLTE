@@ -1,7 +1,7 @@
 # Laravel-AdminLTE
- Easy AdminLTE integration with Laravel
 
-
+在以下项目的基础上，增加了基本的功能，可快速用于管理后台项目的开发。
+https://github.com/jeroennoten/Laravel-AdminLTE
 ## 使用
 
 如果你是本项目的开发者，请按以下流程开始：
